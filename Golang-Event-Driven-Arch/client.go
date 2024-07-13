@@ -14,7 +14,7 @@ func main() {
 	}
 	defer nc.Close()
 
-	err = nc.Publish("Updates", []byte("Hello NAT's"))
+	err = nc.Publish("updates", []byte("Hello NAT's"))
 	if err != nil {
 		log.Println("Could not pusblish the message!")
 	}

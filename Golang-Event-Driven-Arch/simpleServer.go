@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/nats-io/nats.go"
@@ -16,6 +17,7 @@ func main() {
 
 	// Subscribe to the 'updates' subject
 	_, err = nc.Subscribe("updates", func(m *nats.Msg) {
+		fmt.Println(m)
 		log.Printf("Received message: %s", string(m.Data))
 	})
 	if err != nil {
