@@ -25,6 +25,8 @@ main	kafka/microservice1/main.go	/^func main() {$/;"	f
 main	kafka/microservice1/main.go	/^package main$/;"	p
 main	kafka/microservice2/main.go	/^func main() {$/;"	f
 main	kafka/microservice2/main.go	/^package main$/;"	p
+main	main.go	/^func main() {$/;"	f
+main	main.go	/^package main$/;"	p
 main	redis/main.go	/^func main() {$/;"	f
 main	redis/main.go	/^package main$/;"	p
 mu	kafka/api-gateway/main.go	/^var mu sync.Mutex$/;"	v
