@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"time"
 )
 
 func main() {
@@ -15,8 +14,8 @@ func main() {
 		//panic("Could Not Create file.txt.")
 	}
 
-	state, _ := os.Stat("renamedFile.txt")
-	fmt.Print(state.ModTime().Add(time.Hour))
+	state, er := os.Stat("renamedFile.txt")
+	fmt.Print("result : ", os.IsNotExist(er), state.ModTime())
 	return
 	//Rename The file name
 	os.Rename("file.txt", "renamedFile.txt")
