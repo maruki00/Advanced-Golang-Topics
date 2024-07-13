@@ -13,6 +13,8 @@ echoerr	kafka/microservice2/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET 
 init	CLI/main.go	/^func init() {$/;"	f
 main	CLI/main.go	/^func main() {$/;"	f
 main	CLI/main.go	/^package main$/;"	p
+main	Files-Dirs/main.go	/^func main() {$/;"	f
+main	Files-Dirs/main.go	/^package main$/;"	p
 main	Golang-Event-Driven-Arch/QueueServer.go	/^func main() {$/;"	f
 main	Golang-Event-Driven-Arch/QueueServer.go	/^package main$/;"	p
 main	Golang-Event-Driven-Arch/client.go	/^func main() {$/;"	f
