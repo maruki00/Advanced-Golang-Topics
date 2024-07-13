@@ -10,10 +10,15 @@ MyMessage	kafka/microservice2/main.go	/^type MyMessage struct {$/;"	t
 echoerr	kafka/api-gateway/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
 echoerr	kafka/microservice1/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
 echoerr	kafka/microservice2/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
-main	Golang-Event-Driven-Arch/queue.go	/^func main() {$/;"	f
-main	Golang-Event-Driven-Arch/queue.go	/^package main$/;"	p
-main	Golang-Event-Driven-Arch/subscribe.go	/^func main() {$/;"	f
-main	Golang-Event-Driven-Arch/subscribe.go	/^package main$/;"	p
+init	CLI/main.go	/^func init() {$/;"	f
+main	CLI/main.go	/^func main() {$/;"	f
+main	CLI/main.go	/^package main$/;"	p
+main	Golang-Event-Driven-Arch/QueueServer.go	/^func main() {$/;"	f
+main	Golang-Event-Driven-Arch/QueueServer.go	/^package main$/;"	p
+main	Golang-Event-Driven-Arch/client.go	/^func main() {$/;"	f
+main	Golang-Event-Driven-Arch/client.go	/^package main$/;"	p
+main	Golang-Event-Driven-Arch/simpleServer.go	/^func main() {$/;"	f
+main	Golang-Event-Driven-Arch/simpleServer.go	/^package main$/;"	p
 main	kafka/api-gateway/main.go	/^func main() {$/;"	f
 main	kafka/api-gateway/main.go	/^package main$/;"	p
 main	kafka/microservice1/main.go	/^func main() {$/;"	f
@@ -24,6 +29,7 @@ main	redis/main.go	/^func main() {$/;"	f
 main	redis/main.go	/^package main$/;"	p
 mu	kafka/api-gateway/main.go	/^var mu sync.Mutex$/;"	v
 mu	kafka/microservice1/main.go	/^var mu sync.Mutex$/;"	v
+name	CLI/main.go	/^var name string$/;"	v
 responseChannels	kafka/api-gateway/main.go	/^var responseChannels map[string]chan *sarama.ConsumerMessage$/;"	v
 responseChannels	kafka/microservice1/main.go	/^var responseChannels map[string]chan *sarama.ConsumerMessage$/;"	v
 usage	kafka/api-gateway/wait-for-it.sh	/^usage()$/;"	f
