@@ -1,0 +1,42 @@
+version: '3'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      - ZOOKEEPER_CLIENT_PORT=2181
+    networks:
+      - kafka-network
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+    networks:
+      - kafka-network
+
+  microservice1:
+    build:
+      context: ./microservice1
+      dockerfile: Dockerfile
+    depends_on:
+      - kafka
+    networks:
+      - kafka-network
+    ports:
+      - "8080:8080"
+
+  microservice2:
+    build:
+      context: ./microservice2
+      dockerfile: Dockerfile
+    depends_on:
+      - kafka
+    networks:
+      - kafka-network
+
+networks:
+  kafka-network:
+    driver: bridge

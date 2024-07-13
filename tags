@@ -1,0 +1,37 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+MyMessage	kafka/api-gateway/main.go	/^type MyMessage struct {$/;"	t
+MyMessage	kafka/microservice1/main.go	/^type MyMessage struct {$/;"	t
+MyMessage	kafka/microservice2/main.go	/^type MyMessage struct {$/;"	t
+echoerr	kafka/api-gateway/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
+echoerr	kafka/microservice1/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
+echoerr	kafka/microservice2/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
+main	Golang-Event-Driven-Arch/queue.go	/^func main() {$/;"	f
+main	Golang-Event-Driven-Arch/queue.go	/^package main$/;"	p
+main	Golang-Event-Driven-Arch/subscribe.go	/^func main() {$/;"	f
+main	Golang-Event-Driven-Arch/subscribe.go	/^package main$/;"	p
+main	kafka/api-gateway/main.go	/^func main() {$/;"	f
+main	kafka/api-gateway/main.go	/^package main$/;"	p
+main	kafka/microservice1/main.go	/^func main() {$/;"	f
+main	kafka/microservice1/main.go	/^package main$/;"	p
+main	kafka/microservice2/main.go	/^func main() {$/;"	f
+main	kafka/microservice2/main.go	/^package main$/;"	p
+main	redis/main.go	/^func main() {$/;"	f
+main	redis/main.go	/^package main$/;"	p
+mu	kafka/api-gateway/main.go	/^var mu sync.Mutex$/;"	v
+mu	kafka/microservice1/main.go	/^var mu sync.Mutex$/;"	v
+responseChannels	kafka/api-gateway/main.go	/^var responseChannels map[string]chan *sarama.ConsumerMessage$/;"	v
+responseChannels	kafka/microservice1/main.go	/^var responseChannels map[string]chan *sarama.ConsumerMessage$/;"	v
+usage	kafka/api-gateway/wait-for-it.sh	/^usage()$/;"	f
+usage	kafka/microservice1/wait-for-it.sh	/^usage()$/;"	f
+usage	kafka/microservice2/wait-for-it.sh	/^usage()$/;"	f
+wait_for	kafka/api-gateway/wait-for-it.sh	/^wait_for()$/;"	f
+wait_for	kafka/microservice1/wait-for-it.sh	/^wait_for()$/;"	f
+wait_for	kafka/microservice2/wait-for-it.sh	/^wait_for()$/;"	f
+wait_for_wrapper	kafka/api-gateway/wait-for-it.sh	/^wait_for_wrapper()$/;"	f
+wait_for_wrapper	kafka/microservice1/wait-for-it.sh	/^wait_for_wrapper()$/;"	f
+wait_for_wrapper	kafka/microservice2/wait-for-it.sh	/^wait_for_wrapper()$/;"	f

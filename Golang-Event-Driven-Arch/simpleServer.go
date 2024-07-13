@@ -18,7 +18,7 @@ func main() {
 	// Subscribe to the 'updates' subject
 	_, err = nc.Subscribe("updates", func(m *nats.Msg) {
 		fmt.Println(m)
-		log.Printf("Received message: %s", string(m.Data))
+		log.Printf("Received message: %s", string(m.Data), m.Reply, m.Respond([]byte("Message Gotten")))
 	})
 	if err != nil {
 		log.Fatal(err)
