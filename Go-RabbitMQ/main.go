@@ -18,6 +18,15 @@ func main() {
 		_ = conn.Close() // Закрываем подключение в случае удачной попытки
 	}()
 
+	ch, err := conn.Channel()
+	if err != nil {
+		log.Fatalf("failed to open channel. Error: %s", err)
+	}
+
+	defer func() {
+		_ = ch.Close() // Закрываем канал в случае удачной попытки открытия
+	}()
+
 	q, err := ch.QueueDeclare(
 		"hello", // name
 		false,   // durable
@@ -29,15 +38,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to declare a queue. Error: %s", err)
 	}
-
-	ch, err := conn.Channel()
-	if err != nil {
-		log.Fatalf("failed to open channel. Error: %s", err)
-	}
-
-	defer func() {
-		_ = ch.Close() // Закрываем канал в случае удачной попытки открытия
-	}()
 
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
