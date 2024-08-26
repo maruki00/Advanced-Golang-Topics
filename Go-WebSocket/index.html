@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div>
+            <input type="text" id="message" > </input>
+            <input type="reset" id="save" value="send Data" > </input>
+        </div>
+    </form>
+
+    <div id="messges"></div>
+
+    <script>
+        var socket = new WebSocket("ws://127.0.0.1:8085")
+        document.getElementById('save').addEventListener('click', function(){
+            var message = document.getElementById("message").value
+            socket.send( JSON.stringify({subject:message}))
+            document.getElementById("message").value = ''
+        })
+        socket.onmessage = function(result){
+            var message = JSON.parse(result.data).subject
+            var messageElement = document.createElement("div")
+            messageElement.textContent = message
+            document.getElementById('messages').appendChild(messageElement)
+        }
+    </script>
+   
+</body>
+</html>
