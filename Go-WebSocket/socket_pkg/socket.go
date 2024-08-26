@@ -23,7 +23,7 @@ func NewConfig() *Config {
 		Clients:        make(map[string]*websocket.Conn),
 		RegisterClient: make(chan *websocket.Conn),
 		RemoveClient:   make(chan *websocket.Conn),
-		MessageData:        make(chan Message),
+		MessageData:    make(chan Message),
 	}
 }
 
@@ -53,16 +53,11 @@ func (config *Config) RunSocket() {
 		case registerClient := <-config.RegisterClient:
 			config.RegisterClient(registerClient)
 
-		
-		case removeClient := <- config.RemoveClient
+		case removeClient := <-config.RemoveClient:
 			config.RemoveClient(removeClient)
-		
-		case messageData := <- config.MessageData:
+
+		case messageData := <-config.MessageData:
 			config.MessageData(messageData)
-
-
-
-
 		}
 	}
 }

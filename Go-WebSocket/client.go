@@ -3,21 +3,18 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"go-websocket/socket_pkg"
 	"log"
 	"math/rand"
 	"os"
+	"socket_pkg"
 	"time"
 
 	"golang.org/x/net/websocket"
-	"golang.org/x/text/message"
-
-	
-
 )
 
 func main() {
 	con, err := websocket.Dial("ws://127.0.0.1:8085", "", createIP())
-
 
 	if err != nil {
 		log.Fatal(err.Error())
@@ -25,7 +22,7 @@ func main() {
 	defer con.Close()
 
 	go recieveMessage(con)
-	//sendMessage(con)
+	sendMessage(con)
 }
 
 func createIP() string {
@@ -42,7 +39,7 @@ func createIP() string {
 func recieveMessage(con *websocket.Conn) {
 	for {
 
-		var message  socket_pkg.Message
+		var message socket_pkg.Message
 		err := websocket.JSON.Receive(con, message)
 		if err != nil {
 			log.Fatal("Error recieving Data : ", err)
@@ -54,14 +51,19 @@ func recieveMessage(con *websocket.Conn) {
 	}
 }
 
-
 func sendMessage(con *websocket.Conn) {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		text := scanner.Text()
 
-		message := socket.Message{
-			sub
+		message := &socket_pkg.Message{
+			Subject: text,
+		}
+
+		err := websocket.JSON.Send(con, message)
+		if err != nil {
+			log.Fatal(err.Error())
+			continue
 		}
 	}
 }
