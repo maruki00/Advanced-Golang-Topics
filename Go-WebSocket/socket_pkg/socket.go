@@ -15,15 +15,15 @@ type Config struct {
 	Clients        map[string]*websocket.Conn
 	RegisterClient chan *websocket.Conn
 	RemoveClient   chan *websocket.Conn
-	Message        chan Message
+	MessageData    chan Message
 }
 
 func NewConfig() *Config {
 	return &Config{
-		Clients:        make(map[string]*websocket.Conn),
-		RegisterClient: make(chan *websocket.Conn),
-		RemoveClient:   make(chan *websocket.Conn),
-		MessageData:    make(chan Message),
+		clients:        make(map[string]*websocket.Conn),
+		registerClient: make(chan *websocket.Conn),
+		removeClient:   make(chan *websocket.Conn),
+		messageData:    make(chan Message),
 	}
 }
 
@@ -50,13 +50,13 @@ func (Config *Config) MessageData(message Message) {
 func (config *Config) RunSocket() {
 	for {
 		select {
-		case registerClient := <-config.RegisterClient:
+		case registerClient := <-config.registerClient:
 			config.RegisterClient(registerClient)
 
-		case removeClient := <-config.RemoveClient:
+		case removeClient := <-config.removeClient:
 			config.RemoveClient(removeClient)
 
-		case messageData := <-config.MessageData:
+		case messageData := <-config.messageData:
 			config.MessageData(messageData)
 		}
 	}

@@ -7,7 +7,6 @@ import (
 	"log"
 	"math/rand"
 	"os"
-	"socket_pkg"
 	"time"
 
 	"golang.org/x/net/websocket"
