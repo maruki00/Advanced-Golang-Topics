@@ -4,23 +4,60 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Config	Go-WebSocket/socket_pkg/socket.go	/^type Config struct {$/;"	t
+EmployeeDetails	ElasticSearch/model/model.go	/^type EmployeeDetails struct {$/;"	t
+Field	ElasticSearch/model/model.go	/^type Field struct {$/;"	t
+FileDetails	ElasticSearch/model/model.go	/^type FileDetails struct {$/;"	t
+GetOnlinePair	socket/server.go	/^func (s *Server) GetOnlinePair(pair2 chan Pair) {$/;"	f
+InitUser	dependencyInjection/main.go	/^func InitUser() User {$/;"	f
+JoinChat	socket/server.go	/^func (s *Server) JoinChat(pair1 Pair, pair2 Pair) error {$/;"	f
+Login	socket/server.go	/^func (s *Server) Login(pair1 Pair) {$/;"	f
+Logout	socket/server.go	/^func (s *Server) Logout(pair1 Pair) {$/;"	f
+Message	Go-WebSocket/socket_pkg/socket.go	/^type Message struct {$/;"	t
+MessageData	Go-WebSocket/socket_pkg/socket.go	/^func (Config *Config) MessageData(message Message) {$/;"	f
 MyMessage	kafka/api-gateway/main.go	/^type MyMessage struct {$/;"	t
 MyMessage	kafka/microservice1/main.go	/^type MyMessage struct {$/;"	t
 MyMessage	kafka/microservice2/main.go	/^type MyMessage struct {$/;"	t
+NewConfig	Go-WebSocket/socket_pkg/socket.go	/^func NewConfig() *Config {$/;"	f
+NewPair	socket/server.go	/^func NewPair(nikename string, conn net.Conn) *Pair {$/;"	f
+NewServer	socket/server.go	/^func NewServer() *Server {$/;"	f
+Pair	socket/server.go	/^type Pair struct {$/;"	t
+Register	socket/server.go	/^func (s *Server) Register(pair Pair) error {$/;"	f
+RegisterClient	Go-WebSocket/socket_pkg/socket.go	/^func (config *Config) RegisterClient(client *websocket.Conn) {$/;"	f
+RemoveClient	Go-WebSocket/socket_pkg/socket.go	/^func (config *Config) RemoveClient(client *websocket.Conn) {$/;"	f
+RunSocket	Go-WebSocket/socket_pkg/socket.go	/^func (config *Config) RunSocket() {$/;"	f
+SendMessage	socket/server.go	/^func (s *Server) SendMessage(from, to Pair, message string) error {$/;"	f
+Server	socket/server.go	/^type Server struct {$/;"	t
+User	dependencyInjection/main.go	/^type User struct {$/;"	t
+createIP	Go-WebSocket/client.go	/^func createIP() string {$/;"	f
 echoerr	kafka/api-gateway/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
 echoerr	kafka/microservice1/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
 echoerr	kafka/microservice2/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
+handleClient	socket/server.go	/^func (s *Server) handleClient(conn net.Conn) {$/;"	f
+handleServer	socket/client.go	/^func handleServer(conn net.Conn, nName string) {$/;"	f
 init	CLI/main.go	/^func init() {$/;"	f
 main	CLI/main.go	/^func main() {$/;"	f
 main	CLI/main.go	/^package main$/;"	p
-main	Files-Dirs/main.go	/^func main() {$/;"	f
-main	Files-Dirs/main.go	/^package main$/;"	p
+main	Files-Dirs/directory.go	/^func main() {$/;"	f
+main	Files-Dirs/directory.go	/^package main$/;"	p
+main	Files-Dirs/file.go	/^func main() {$/;"	f
+main	Files-Dirs/file.go	/^package main$/;"	p
+main	Go-RabbitMQ/client.go	/^func main() {$/;"	f
+main	Go-RabbitMQ/client.go	/^package main$/;"	p
+main	Go-RabbitMQ/main.go	/^func main() {$/;"	f
+main	Go-RabbitMQ/main.go	/^package main$/;"	p
+main	Go-WebSocket/client.go	/^func main() {$/;"	f
+main	Go-WebSocket/client.go	/^package main$/;"	p
+main	Go-WebSocket/server.go	/^func main() {$/;"	f
+main	Go-WebSocket/server.go	/^package main$/;"	p
 main	Golang-Event-Driven-Arch/QueueServer.go	/^func main() {$/;"	f
 main	Golang-Event-Driven-Arch/QueueServer.go	/^package main$/;"	p
 main	Golang-Event-Driven-Arch/client.go	/^func main() {$/;"	f
 main	Golang-Event-Driven-Arch/client.go	/^package main$/;"	p
 main	Golang-Event-Driven-Arch/simpleServer.go	/^func main() {$/;"	f
 main	Golang-Event-Driven-Arch/simpleServer.go	/^package main$/;"	p
+main	dependencyInjection/main.go	/^func main() {$/;"	f
+main	dependencyInjection/main.go	/^package main$/;"	p
 main	kafka/api-gateway/main.go	/^func main() {$/;"	f
 main	kafka/api-gateway/main.go	/^package main$/;"	p
 main	kafka/microservice1/main.go	/^func main() {$/;"	f
@@ -31,11 +68,20 @@ main	main.go	/^func main() {$/;"	f
 main	main.go	/^package main$/;"	p
 main	redis/main.go	/^func main() {$/;"	f
 main	redis/main.go	/^package main$/;"	p
+main	socket/client.go	/^func main() {$/;"	f
+main	socket/client.go	/^package main$/;"	p
+main	socket/server.go	/^func main() {$/;"	f
+main	socket/server.go	/^package main$/;"	p
+model	ElasticSearch/model/model.go	/^package model$/;"	p
 mu	kafka/api-gateway/main.go	/^var mu sync.Mutex$/;"	v
 mu	kafka/microservice1/main.go	/^var mu sync.Mutex$/;"	v
 name	CLI/main.go	/^var name string$/;"	v
+read	Files-Dirs/file.go	/^func read(path string) string {$/;"	f
+recieveMessage	Go-WebSocket/client.go	/^func recieveMessage(con *websocket.Conn) {$/;"	f
 responseChannels	kafka/api-gateway/main.go	/^var responseChannels map[string]chan *sarama.ConsumerMessage$/;"	v
 responseChannels	kafka/microservice1/main.go	/^var responseChannels map[string]chan *sarama.ConsumerMessage$/;"	v
+sendMessage	Go-WebSocket/client.go	/^func sendMessage(con *websocket.Conn) {$/;"	f
+socket_pkg	Go-WebSocket/socket_pkg/socket.go	/^package socket_pkg$/;"	p
 usage	kafka/api-gateway/wait-for-it.sh	/^usage()$/;"	f
 usage	kafka/microservice1/wait-for-it.sh	/^usage()$/;"	f
 usage	kafka/microservice2/wait-for-it.sh	/^usage()$/;"	f
@@ -45,3 +91,4 @@ wait_for	kafka/microservice2/wait-for-it.sh	/^wait_for()$/;"	f
 wait_for_wrapper	kafka/api-gateway/wait-for-it.sh	/^wait_for_wrapper()$/;"	f
 wait_for_wrapper	kafka/microservice1/wait-for-it.sh	/^wait_for_wrapper()$/;"	f
 wait_for_wrapper	kafka/microservice2/wait-for-it.sh	/^wait_for_wrapper()$/;"	f
+write	Files-Dirs/file.go	/^func write(file *os.File, data string) {$/;"	f
