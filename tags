@@ -5,39 +5,76 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 Config	Go-WebSocket/socket_pkg/socket.go	/^type Config struct {$/;"	t
+CreateUserCommand	CQRS/internal/commands/CreateUserCommand.go	/^type CreateUserCommand struct {$/;"	t
 EmployeeDetails	ElasticSearch/model/model.go	/^type EmployeeDetails struct {$/;"	t
+FetchByUsername	dependencyInjection/user/handler.go	/^func (h *handler) FetchByUsername() http.HandlerFunc {$/;"	f
+FetchByUsername	dependencyInjection/user/repository.go	/^func (r *repository) FetchByUsername(ctx context.Context, username string) (*domain.UserEntity, error) {$/;"	f
+FetchByUsername	dependencyInjection/user/service.go	/^func (s *service) FetchByUsername(ctx context.Context, username string) (*domain.User, error) {$/;"	f
 Field	ElasticSearch/model/model.go	/^type Field struct {$/;"	t
 FileDetails	ElasticSearch/model/model.go	/^type FileDetails struct {$/;"	t
+GetCurrentTimeMessage	dependencyInjection/tmp/message.go	/^func GetCurrentTimeMessage(t time.Time) Message {$/;"	f
 GetOnlinePair	socket/server.go	/^func (s *Server) GetOnlinePair(pair2 chan Pair) {$/;"	f
-InitUser	dependencyInjection/main.go	/^func InitUser() User {$/;"	f
+GetUserQuery	CQRS/internal/queries/GetUserQuery.go	/^type GetUserQuery struct {$/;"	t
+Greet	dependencyInjection/greeter.go	/^func (g Greeter) Greet() {$/;"	f
+Greet	dependencyInjection/tmp/greeter.go	/^func (g Greeter) Greet() {$/;"	f
+Greeter	dependencyInjection/greeter.go	/^type Greeter struct {$/;"	t
+Greeter	dependencyInjection/tmp/greeter.go	/^type Greeter struct {$/;"	t
+HandleCreateUserCommand	CQRS/internal/repository/userRepository.go	/^func (r *Repository) HandleCreateUserCommand(cmd commands.CreateUserCommand) {$/;"	f
+HandleGetUserQuery	CQRS/internal/repository/userRepository.go	/^func (r *Repository) HandleGetUserQuery(query queries.GetUserQuery) (models.User, error) {$/;"	f
+InitializeGreeter	dependencyInjection/tmp/wire.go	/^func InitializeGreeter() Greeter {$/;"	f
+InitializeGreeter	dependencyInjection/tmp/wire_gen.go	/^func InitializeGreeter() Greeter {$/;"	f
 JoinChat	socket/server.go	/^func (s *Server) JoinChat(pair1 Pair, pair2 Pair) error {$/;"	f
 Login	socket/server.go	/^func (s *Server) Login(pair1 Pair) {$/;"	f
 Logout	socket/server.go	/^func (s *Server) Logout(pair1 Pair) {$/;"	f
 Message	Go-WebSocket/socket_pkg/socket.go	/^type Message struct {$/;"	t
+Message	dependencyInjection/tmp/message.go	/^type Message struct {$/;"	t
 MessageData	Go-WebSocket/socket_pkg/socket.go	/^func (Config *Config) MessageData(message Message) {$/;"	f
 MyMessage	kafka/api-gateway/main.go	/^type MyMessage struct {$/;"	t
 MyMessage	kafka/microservice1/main.go	/^type MyMessage struct {$/;"	t
 MyMessage	kafka/microservice2/main.go	/^type MyMessage struct {$/;"	t
 NewConfig	Go-WebSocket/socket_pkg/socket.go	/^func NewConfig() *Config {$/;"	f
+NewGreeter	dependencyInjection/greeter.go	/^func NewGreeter(m Message) Greeter {$/;"	f
+NewGreeter	dependencyInjection/tmp/greeter.go	/^func NewGreeter(m Message) Greeter {$/;"	f
+NewMessage	dependencyInjection/tmp/message.go	/^func NewMessage() Message {$/;"	f
 NewPair	socket/server.go	/^func NewPair(nikename string, conn net.Conn) *Pair {$/;"	f
+NewRepository	CQRS/internal/repository/userRepository.go	/^func NewRepository() *Repository {$/;"	f
 NewServer	socket/server.go	/^func NewServer() *Server {$/;"	f
 Pair	socket/server.go	/^type Pair struct {$/;"	t
+ProvideHandler	dependencyInjection/user/provider.go	/^func ProvideHandler(svc domain.UserService) *handler {$/;"	f
+ProvideRepository	dependencyInjection/user/provider.go	/^func ProvideRepository(db *sql.DB) *repository {$/;"	f
+ProvideService	dependencyInjection/user/provider.go	/^func ProvideService(repo domain.UserRepository) *service {$/;"	f
 Register	socket/server.go	/^func (s *Server) Register(pair Pair) error {$/;"	f
 RegisterClient	Go-WebSocket/socket_pkg/socket.go	/^func (config *Config) RegisterClient(client *websocket.Conn) {$/;"	f
 RemoveClient	Go-WebSocket/socket_pkg/socket.go	/^func (config *Config) RemoveClient(client *websocket.Conn) {$/;"	f
+Repository	CQRS/internal/repository/userRepository.go	/^type Repository struct {$/;"	t
 RunSocket	Go-WebSocket/socket_pkg/socket.go	/^func (config *Config) RunSocket() {$/;"	f
 SendMessage	socket/server.go	/^func (s *Server) SendMessage(from, to Pair, message string) error {$/;"	f
 Server	socket/server.go	/^type Server struct {$/;"	t
-User	dependencyInjection/main.go	/^type User struct {$/;"	t
+String	dependencyInjection/tmp/message.go	/^func (m Message) String() string {$/;"	f
+User	CQRS/internal/models/User.go	/^type User struct {$/;"	t
+User	dependencyInjection/domain/user.go	/^	User struct {$/;"	t
+UserEntity	dependencyInjection/domain/user.go	/^	UserEntity struct {$/;"	t
+UserHandler	dependencyInjection/domain/user.go	/^	UserHandler interface {$/;"	t
+UserRepository	dependencyInjection/domain/user.go	/^	UserRepository interface {$/;"	t
+UserService	dependencyInjection/domain/user.go	/^	UserService interface {$/;"	t
+Wire	dependencyInjection/user/wire.go	/^func Wire(db *sql.DB) *handler {$/;"	f
+commands	CQRS/internal/commands/CreateUserCommand.go	/^package commands$/;"	p
 createIP	Go-WebSocket/client.go	/^func createIP() string {$/;"	f
+domain	dependencyInjection/domain/user.go	/^package domain$/;"	p
 echoerr	kafka/api-gateway/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
 echoerr	kafka/microservice1/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
 echoerr	kafka/microservice2/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
 handleClient	socket/server.go	/^func (s *Server) handleClient(conn net.Conn) {$/;"	f
 handleServer	socket/client.go	/^func handleServer(conn net.Conn, nName string) {$/;"	f
+handler	dependencyInjection/user/handler.go	/^type handler struct {$/;"	t
+hdl	dependencyInjection/user/provider.go	/^	hdl     *handler$/;"	v
+hdlOnce	dependencyInjection/user/provider.go	/^	hdlOnce sync.Once$/;"	v
 init	CLI/main.go	/^func init() {$/;"	f
+logRequestMiddleware	proxyServer/main.go	/^func logRequestMiddleware(next http.Handler) http.Handler {$/;"	f
 main	CLI/main.go	/^func main() {$/;"	f
 main	CLI/main.go	/^package main$/;"	p
+main	CQRS/cmd/main.go	/^func main() {$/;"	f
+main	CQRS/cmd/main.go	/^package main$/;"	p
 main	Files-Dirs/directory.go	/^func main() {$/;"	f
 main	Files-Dirs/directory.go	/^package main$/;"	p
 main	Files-Dirs/file.go	/^func main() {$/;"	f
@@ -56,8 +93,15 @@ main	Golang-Event-Driven-Arch/client.go	/^func main() {$/;"	f
 main	Golang-Event-Driven-Arch/client.go	/^package main$/;"	p
 main	Golang-Event-Driven-Arch/simpleServer.go	/^func main() {$/;"	f
 main	Golang-Event-Driven-Arch/simpleServer.go	/^package main$/;"	p
+main	dependencyInjection/greeter.go	/^package main$/;"	p
 main	dependencyInjection/main.go	/^func main() {$/;"	f
 main	dependencyInjection/main.go	/^package main$/;"	p
+main	dependencyInjection/tmp/greeter.go	/^package main$/;"	p
+main	dependencyInjection/tmp/main.go	/^func main() {$/;"	f
+main	dependencyInjection/tmp/main.go	/^package main$/;"	p
+main	dependencyInjection/tmp/message.go	/^package main$/;"	p
+main	dependencyInjection/tmp/wire.go	/^package main$/;"	p
+main	dependencyInjection/tmp/wire_gen.go	/^package main$/;"	p
 main	kafka/api-gateway/main.go	/^func main() {$/;"	f
 main	kafka/api-gateway/main.go	/^package main$/;"	p
 main	kafka/microservice1/main.go	/^func main() {$/;"	f
@@ -66,6 +110,8 @@ main	kafka/microservice2/main.go	/^func main() {$/;"	f
 main	kafka/microservice2/main.go	/^package main$/;"	p
 main	main.go	/^func main() {$/;"	f
 main	main.go	/^package main$/;"	p
+main	proxyServer/main.go	/^func main() {$/;"	f
+main	proxyServer/main.go	/^package main$/;"	p
 main	redis/main.go	/^func main() {$/;"	f
 main	redis/main.go	/^package main$/;"	p
 main	socket/client.go	/^func main() {$/;"	f
@@ -73,18 +119,33 @@ main	socket/client.go	/^package main$/;"	p
 main	socket/server.go	/^func main() {$/;"	f
 main	socket/server.go	/^package main$/;"	p
 model	ElasticSearch/model/model.go	/^package model$/;"	p
+models	CQRS/internal/models/User.go	/^package models$/;"	p
 mu	kafka/api-gateway/main.go	/^var mu sync.Mutex$/;"	v
 mu	kafka/microservice1/main.go	/^var mu sync.Mutex$/;"	v
 name	CLI/main.go	/^var name string$/;"	v
+newReverseProxy	proxyServer/main.go	/^func newReverseProxy(target string) *httputil.ReverseProxy {$/;"	f
+queries	CQRS/internal/queries/GetUserQuery.go	/^package queries$/;"	p
 read	Files-Dirs/file.go	/^func read(path string) string {$/;"	f
 recieveMessage	Go-WebSocket/client.go	/^func recieveMessage(con *websocket.Conn) {$/;"	f
+repo	dependencyInjection/user/provider.go	/^	repo     *repository$/;"	v
+repoOnce	dependencyInjection/user/provider.go	/^	repoOnce sync.Once$/;"	v
+repository	CQRS/internal/repository/userRepository.go	/^package repository$/;"	p
+repository	dependencyInjection/user/repository.go	/^type repository struct {$/;"	t
 responseChannels	kafka/api-gateway/main.go	/^var responseChannels map[string]chan *sarama.ConsumerMessage$/;"	v
 responseChannels	kafka/microservice1/main.go	/^var responseChannels map[string]chan *sarama.ConsumerMessage$/;"	v
 sendMessage	Go-WebSocket/client.go	/^func sendMessage(con *websocket.Conn) {$/;"	f
+service	dependencyInjection/user/service.go	/^type service struct {$/;"	t
 socket_pkg	Go-WebSocket/socket_pkg/socket.go	/^package socket_pkg$/;"	p
+svc	dependencyInjection/user/provider.go	/^	svc     *service$/;"	v
+svcOnce	dependencyInjection/user/provider.go	/^	svcOnce sync.Once$/;"	v
 usage	kafka/api-gateway/wait-for-it.sh	/^usage()$/;"	f
 usage	kafka/microservice1/wait-for-it.sh	/^usage()$/;"	f
 usage	kafka/microservice2/wait-for-it.sh	/^usage()$/;"	f
+user	dependencyInjection/user/handler.go	/^package user$/;"	p
+user	dependencyInjection/user/provider.go	/^package user$/;"	p
+user	dependencyInjection/user/repository.go	/^package user$/;"	p
+user	dependencyInjection/user/service.go	/^package user$/;"	p
+user	dependencyInjection/user/wire.go	/^package user$/;"	p
 wait_for	kafka/api-gateway/wait-for-it.sh	/^wait_for()$/;"	f
 wait_for	kafka/microservice1/wait-for-it.sh	/^wait_for()$/;"	f
 wait_for	kafka/microservice2/wait-for-it.sh	/^wait_for()$/;"	f
