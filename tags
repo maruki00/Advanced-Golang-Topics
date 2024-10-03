@@ -7,11 +7,13 @@
 Config	Go-WebSocket/socket_pkg/socket.go	/^type Config struct {$/;"	t
 CreateUserCommand	CQRS/internal/commands/CreateUserCommand.go	/^type CreateUserCommand struct {$/;"	t
 EmployeeDetails	ElasticSearch/model/model.go	/^type EmployeeDetails struct {$/;"	t
+Event	eventDomain/event.go	/^type Event interface {$/;"	t
 FetchByUsername	dependencyInjection/user/handler.go	/^func (h *handler) FetchByUsername() http.HandlerFunc {$/;"	f
 FetchByUsername	dependencyInjection/user/repository.go	/^func (r *repository) FetchByUsername(ctx context.Context, username string) (*domain.UserEntity, error) {$/;"	f
 FetchByUsername	dependencyInjection/user/service.go	/^func (s *service) FetchByUsername(ctx context.Context, username string) (*domain.User, error) {$/;"	f
 Field	ElasticSearch/model/model.go	/^type Field struct {$/;"	t
 FileDetails	ElasticSearch/model/model.go	/^type FileDetails struct {$/;"	t
+GeneralError	eventDomain/event.go	/^type GeneralError string$/;"	t
 GetCurrentTimeMessage	dependencyInjection/tmp/message.go	/^func GetCurrentTimeMessage(t time.Time) Message {$/;"	f
 GetOnlinePair	socket/server.go	/^func (s *Server) GetOnlinePair(pair2 chan Pair) {$/;"	f
 GetUserQuery	CQRS/internal/queries/GetUserQuery.go	/^type GetUserQuery struct {$/;"	t
@@ -32,6 +34,7 @@ MessageData	Go-WebSocket/socket_pkg/socket.go	/^func (Config *Config) MessageDat
 MyMessage	kafka/api-gateway/main.go	/^type MyMessage struct {$/;"	t
 MyMessage	kafka/microservice1/main.go	/^type MyMessage struct {$/;"	t
 MyMessage	kafka/microservice2/main.go	/^type MyMessage struct {$/;"	t
+Name	eventDomain/event.go	/^func (e GeneralError) Name() string {$/;"	f
 NewConfig	Go-WebSocket/socket_pkg/socket.go	/^func NewConfig() *Config {$/;"	f
 NewGreeter	dependencyInjection/greeter.go	/^func NewGreeter(m Message) Greeter {$/;"	f
 NewGreeter	dependencyInjection/tmp/greeter.go	/^func NewGreeter(m Message) Greeter {$/;"	f
@@ -39,6 +42,8 @@ NewMessage	dependencyInjection/tmp/message.go	/^func NewMessage() Message {$/;"	
 NewPair	socket/server.go	/^func NewPair(nikename string, conn net.Conn) *Pair {$/;"	f
 NewRepository	CQRS/internal/repository/userRepository.go	/^func NewRepository() *Repository {$/;"	f
 NewServer	socket/server.go	/^func NewServer() *Server {$/;"	f
+OrderDispatched	eventDomain/orderevent.go	/^type OrderDispatched struct {$/;"	t
+OrderEvent	eventDomain/orderevent.go	/^type OrderEvent interface {$/;"	t
 Pair	socket/server.go	/^type Pair struct {$/;"	t
 ProvideHandler	dependencyInjection/user/provider.go	/^func ProvideHandler(svc domain.UserService) *handler {$/;"	f
 ProvideRepository	dependencyInjection/user/provider.go	/^func ProvideRepository(db *sql.DB) *repository {$/;"	f
@@ -64,6 +69,8 @@ domain	dependencyInjection/domain/user.go	/^package domain$/;"	p
 echoerr	kafka/api-gateway/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
 echoerr	kafka/microservice1/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
 echoerr	kafka/microservice2/wait-for-it.sh	/^echoerr() { if [[ $WAITFORIT_QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }$/;"	f
+getAge	dataAggrigates/main.go	/^func getAge(int chan age, wg &async.WaitGroup) {$/;"	f
+getName	dataAggrigates/main.go	/^func getName(string chan name, wg &async.WaitGroup) {$/;"	f
 handleClient	socket/server.go	/^func (s *Server) handleClient(conn net.Conn) {$/;"	f
 handleServer	socket/client.go	/^func handleServer(conn net.Conn, nName string) {$/;"	f
 handler	dependencyInjection/user/handler.go	/^type handler struct {$/;"	t
@@ -93,6 +100,8 @@ main	Golang-Event-Driven-Arch/client.go	/^func main() {$/;"	f
 main	Golang-Event-Driven-Arch/client.go	/^package main$/;"	p
 main	Golang-Event-Driven-Arch/simpleServer.go	/^func main() {$/;"	f
 main	Golang-Event-Driven-Arch/simpleServer.go	/^package main$/;"	p
+main	dataAggrigates/main.go	/^func main() {$/;"	f
+main	dataAggrigates/main.go	/^package main$/;"	p
 main	dependencyInjection/greeter.go	/^package main$/;"	p
 main	dependencyInjection/main.go	/^func main() {$/;"	f
 main	dependencyInjection/main.go	/^package main$/;"	p
@@ -102,6 +111,10 @@ main	dependencyInjection/tmp/main.go	/^package main$/;"	p
 main	dependencyInjection/tmp/message.go	/^package main$/;"	p
 main	dependencyInjection/tmp/wire.go	/^package main$/;"	p
 main	dependencyInjection/tmp/wire_gen.go	/^package main$/;"	p
+main	eventDomain/event.go	/^package main$/;"	p
+main	eventDomain/orderevent.go	/^package main$/;"	p
+main	go-desktopscreenshot/main.go	/^func main() {$/;"	f
+main	go-desktopscreenshot/main.go	/^package main$/;"	p
 main	kafka/api-gateway/main.go	/^func main() {$/;"	f
 main	kafka/api-gateway/main.go	/^package main$/;"	p
 main	kafka/microservice1/main.go	/^func main() {$/;"	f
@@ -118,6 +131,8 @@ main	socket/client.go	/^func main() {$/;"	f
 main	socket/client.go	/^package main$/;"	p
 main	socket/server.go	/^func main() {$/;"	f
 main	socket/server.go	/^package main$/;"	p
+main	webcam/main.go	/^func main() {$/;"	f
+main	webcam/main.go	/^package main$/;"	p
 model	ElasticSearch/model/model.go	/^package model$/;"	p
 models	CQRS/internal/models/User.go	/^package models$/;"	p
 mu	kafka/api-gateway/main.go	/^var mu sync.Mutex$/;"	v
@@ -136,6 +151,7 @@ responseChannels	kafka/microservice1/main.go	/^var responseChannels map[string]c
 sendMessage	Go-WebSocket/client.go	/^func sendMessage(con *websocket.Conn) {$/;"	f
 service	dependencyInjection/user/service.go	/^type service struct {$/;"	t
 socket_pkg	Go-WebSocket/socket_pkg/socket.go	/^package socket_pkg$/;"	p
+startHTTP2Server	proxyServer/main.go	/^func startHTTP2Server(proxy http.Handler) {$/;"	f
 svc	dependencyInjection/user/provider.go	/^	svc     *service$/;"	v
 svcOnce	dependencyInjection/user/provider.go	/^	svcOnce sync.Once$/;"	v
 usage	kafka/api-gateway/wait-for-it.sh	/^usage()$/;"	f
