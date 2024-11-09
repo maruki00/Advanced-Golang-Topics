@@ -1,0 +1,23 @@
+version: '3.9'
+
+
+
+
+services:
+  postgres:
+    image: postgres:alpine3.19
+    container_name: postgres_sqlc
+    restart: "no"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=SQLC
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+    networks:
+      - net1
+networks:
+  net1:
+  
