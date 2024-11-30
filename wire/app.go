@@ -5,11 +5,11 @@ import (
 )
 
 type App struct {
-	rep Repository
-	srv Service
+	rep *Repository
+	srv *Service
 }
 
-func NewApp(repo Repository, srv Service) *App {
+func NewApp(repo *Repository, srv *Service) *App {
 	fmt.Println("🧑🏼‍🎄")
 	return &App{
 		rep: repo,
