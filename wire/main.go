@@ -2,6 +2,13 @@ package main
 
 import "fmt"
 
+
+
+type Hello struct {
+
+	Name string
+}
+
 func main() {
 
 	fmt.Println("hello world ...")

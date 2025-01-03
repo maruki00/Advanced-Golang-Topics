@@ -38,3 +38,12 @@ func (r *Repository) HandleGetUserQuery(query queries.GetUserQuery) (models.User
 
 	return user, nil
 }
+
+func hellowoerl()  string {
+	return "hellowo"
+}
+
+
+func mainn(){
+	fmt.Println("helloworld")
+}
