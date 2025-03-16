@@ -4,6 +4,7 @@ import (
 	"fmt"
 )
 
+// Role Base Access Control
 type Role struct {
 	Name        string
 	Permissions []string
