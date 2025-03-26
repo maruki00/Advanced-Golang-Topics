@@ -15,7 +15,7 @@ import (
 )
 
 func initTracer(ctx context.Context) func() {
-	// إنشاء Exporter باستخدام OTLP و gRPC
+
 	client := otlptracegrpc.NewClient(otlptracegrpc.WithInsecure(), otlptracegrpc.WithEndpoint("localhost:4317"))
 	exp, err := otlptrace.New(ctx, client)
 	if err != nil {
@@ -57,6 +57,6 @@ func processRequest(ctx context.Context) {
 	_, span := tracer.Start(ctx, "process-request")
 	defer span.End()
 
-	time.Sleep(500 * time.Millisecond) // محاكاة عملية طويلة
+	time.Sleep(500 * time.Millisecond)
 	fmt.Println("Processing request finished")
 }

@@ -6,7 +6,7 @@ receivers:
 
 exporters:
   jaeger:
-    endpoint: "http://jaeger:14268/api/traces"
+    endpoint: "http://localhost:14268/api/traces"
     tls:
       insecure: true
 
