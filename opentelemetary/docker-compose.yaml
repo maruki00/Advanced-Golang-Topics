@@ -1,0 +1,18 @@
+version: "3"
+services:
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686"  # واجهة Jaeger
+      - "14268:14268"  # استقبال بيانات التتبع
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otel/config.yaml
+    command: [ "--config=/etc/otel/config.yaml" ]
+    ports:
+      - "4317:4317"  # OTLP gRPC
+      - "4318:4318"  # OTLP HTTP
+    depends_on:
+      - jaeger
