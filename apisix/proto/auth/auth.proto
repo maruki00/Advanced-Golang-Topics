@@ -1,0 +1,15 @@
+syntax="proto3";
+option go_package = "apisix-api/proto/auth";
+package auth;
+service Auth {
+    rpc Login (LoginRequest) returns (LoginResponse);
+}
+message LoginRequest {
+    string username = 1;
+    string email = 2;
+    string password = 3;
+}
+message LoginResponse {
+    string token = 1;
+    int64 expired_timestamp = 2;
+}
