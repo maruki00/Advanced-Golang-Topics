@@ -19,7 +19,7 @@ func CheckToken(next echo.HandlerFunc) echo.HandlerFunc {
 		if ctx == nil {
 			ctx = context.Background()
 		}
-		var req customMw.CheckTokenRequest
+		var req auth_gen.CheckTokenRequest
 		headerToken := c.Request().Header.Get(echo.HeaderAuthorization)
 		req.Token = strings.Replace(headerToken, "Bearer ", "", -1)
 		log.Println(req.Token)
