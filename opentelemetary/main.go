@@ -57,6 +57,6 @@ func processRequest(ctx context.Context) {
 	_, span := tracer.Start(ctx, "process-request")
 	defer span.End()
 
-	time.Sleep(500 * time.Millisecond)
+	time.Sleep(500 * time.Second)
 	fmt.Println("Processing request finished")
 }
