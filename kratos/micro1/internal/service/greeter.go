@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	v1 "helloworld/api/helloworld/v1"
-	"helloworld/internal/biz"
+	v1 "micro1/api/helloworld/v1"
+	"micro1/internal/biz"
 )
 
 // GreeterService is a greeter service.
@@ -25,5 +25,5 @@ func (s *GreeterService) SayHello(ctx context.Context, in *v1.HelloRequest) (*v1
 	if err != nil {
 		return nil, err
 	}
-	return &v1.HelloReply{Message: "Hello " + g.Hello}, nil
+	return &v1.HelloReply{Message: "Hello world how are you : " + g.Hello}, nil
 }

@@ -7,13 +7,13 @@
 package main
 
 import (
-	"helloworld/internal/biz"
-	"helloworld/internal/conf"
-	"helloworld/internal/data"
-	"helloworld/internal/server"
-	"helloworld/internal/service"
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
+	"micro1/internal/biz"
+	"micro1/internal/conf"
+	"micro1/internal/data"
+	"micro1/internal/server"
+	"micro1/internal/service"
 )
 
 import (

@@ -4,7 +4,7 @@ import (
 	"flag"
 	"os"
 
-	"helloworld/internal/conf"
+	"micro1/internal/conf"
 
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/config"
