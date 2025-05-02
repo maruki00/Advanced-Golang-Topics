@@ -1,0 +1,33 @@
+{
+  "title": "Golang Microservice Dashboard",
+  "tags": ["golang", "microservice"],
+  "timezone": "browser",
+  "panels": [
+    {
+      "title": "HTTP Requests",
+      "type": "graph",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "sum(rate(http_requests_total[1m])) by (service, code)",
+          "legendFormat": "{{service}} - {{code}}",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {"x": 0, "y": 0, "w": 12, "h": 8}
+    },
+    {
+      "title": "Request Duration",
+      "type": "heatmap",
+      "datasource": "Prometheus",
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.99, sum(rate(http_request_duration_seconds_bucket[1m])) by (le, service)",
+          "legendFormat": "{{service}}",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {"x": 12, "y": 0, "w": 12, "h": 8}
+    }
+  ]
+}

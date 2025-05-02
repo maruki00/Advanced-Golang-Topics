@@ -1,0 +1,29 @@
+groups:
+- name: golang-service-alerts
+  rules:
+  - alert: HighErrorRate
+    expr: rate(http_requests_total{code=~"5.."}[1m]) / rate(http_requests_total[1m]) > 0.05
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "High error rate on {{ $labels.service }}"
+      description: "Error rate is {{ $value }} for {{ $labels.service }}"
+
+  - alert: HighLatency
+    expr: histogram_quantile(0.99, sum(rate(http_request_duration_seconds_bucket[1m])) by (service, handler) > 1
+    for: 10m
+    labels:
+      severity: warning
+    annotations:
+      summary: "High latency on {{ $labels.service }}"
+      description: "99th percentile latency is {{ $value }}s for {{ $labels.handler }}"
+
+  - alert: ServiceDown
+    expr: up{job="golang-services"} == 0
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Service {{ $labels.service }} is down"
+      description: "{{ $labels.service }} has been down for more than 1 minute"
