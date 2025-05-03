@@ -18,35 +18,38 @@ import (
 )
 
 var (
+	// HTTP metrics
 	httpRequestsTotal = promauto.NewCounterVec(prometheus.CounterOpts{
-		Name: "http_requests_total",
+		Name: "myapp_http_requests_total",
 		Help: "Total number of HTTP requests",
 	}, []string{"service", "handler", "method", "code"})
 
 	httpRequestDuration = promauto.NewHistogramVec(prometheus.HistogramOpts{
-		Name:    "http_request_duration_seconds",
+		Name:    "myapp_http_request_duration_seconds",
 		Help:    "Duration of HTTP requests",
 		Buckets: []float64{0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10},
 	}, []string{"service", "handler", "method"})
 
 	httpRequestsInFlight = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "http_requests_in_flight",
+		Name: "myapp_http_requests_in_flight",
 		Help: "Current number of HTTP requests being served",
 	})
 
+	// Business metrics
 	ordersProcessed = promauto.NewCounterVec(prometheus.CounterOpts{
-		Name: "orders_processed_total",
+		Name: "myapp_orders_processed_total",
 		Help: "Total number of processed orders",
 	}, []string{"service", "status"})
 
-	goRoutines = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "go_goroutines",
-		Help: "Number of goroutines",
+	// Custom system metrics (using custom names to avoid conflicts)
+	appGoroutines = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "myapp_custom_goroutines",
+		Help: "Custom goroutine count measurement",
 	})
 
-	goMemoryAlloc = promauto.NewGauge(prometheus.GaugeOpts{
-		Name: "go_memstats_alloc_bytes",
-		Help: "Current memory allocation in bytes",
+	appMemoryAlloc = promauto.NewGauge(prometheus.GaugeOpts{
+		Name: "myapp_custom_memory_alloc_bytes",
+		Help: "Custom memory allocation measurement",
 	})
 )
 
@@ -57,10 +60,10 @@ func recordSystemMetrics(ctx context.Context) {
 	for {
 		select {
 		case <-ticker.C:
-			goRoutines.Set(float64(runtime.NumGoroutine()))
+			appGoroutines.Set(float64(runtime.NumGoroutine()))
 			var m runtime.MemStats
 			runtime.ReadMemStats(&m)
-			goMemoryAlloc.Set(float64(m.Alloc))
+			appMemoryAlloc.Set(float64(m.Alloc))
 		case <-ctx.Done():
 			return
 		}
@@ -111,8 +114,7 @@ func healthHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func orderHandler(w http.ResponseWriter, r *http.Request) {
-
-	time.Sleep(time.Duration(50+rand.Intn(100)) * time.Millisecond)
+	////time.Sleep(time.Duration(50+rand.Intn(100)) * time.Millisecond)
 
 	if rand.Float32() > 0.1 {
 		ordersProcessed.WithLabelValues("order-service", "success").Inc()
@@ -129,15 +131,20 @@ func main() {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
+	// Start system metrics collection
 	go recordSystemMetrics(ctx)
 
+	// Set up router
 	mux := http.NewServeMux()
 
+	// Instrumented handlers
 	mux.HandleFunc("/health", instrumentHandler("order-service", "health", healthHandler))
 	mux.HandleFunc("/order", instrumentHandler("order-service", "order", orderHandler))
 
+	// Prometheus metrics endpoint
 	mux.Handle("/metrics", promhttp.Handler())
 
+	fmt.Println("Server Start in 0.0.0.0:8080")
 	server := &http.Server{
 		Addr:    ":8080",
 		Handler: mux,
@@ -149,10 +156,12 @@ func main() {
 		}
 	}()
 
+	// Wait for interrupt signal
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM)
 	<-sigChan
 
+	// Shutdown gracefully
 	shutdownCtx, shutdownCancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer shutdownCancel()
 
